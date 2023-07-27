@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Lucca's Blog",
-  description: "Uma aplicação de blog feita com Next.js e TailwindCSS 🚀",
+  description:
+    "Um blog para ajudá-lo a se manter atualizado com as novidades da web 🚀",
   icons: [
     {
       href: "/lucca.jpg",
