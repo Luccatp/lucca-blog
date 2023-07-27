@@ -22,7 +22,7 @@ export default async function Home() {
       <ul>
         {data.map((post) => (
           <li key={post._id} className="py-4">
-            <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+            <article className="relative space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
               <div>
                 <p className="text-base font-medium leading-6 text-teal-500">
                   {new Date(post._createdAt)
@@ -44,11 +44,11 @@ export default async function Home() {
                   </h3>
                 </div>
 
-                <div className="group relative w-max">
+                <div className="group">
                   <p className="prose max-w-none line-clamp-3 text-gray-500 dark:text-gray-400">
                     {post.overview}
                   </p>
-                  <span className="pointer-events-none rounded-2xl p-4 bg-teal-200 dark:bg-teal-950 absolute top-10 left-0 w-max opacity-0 transition-opacity group-hover:opacity-100 group-hover:duration-700 group-hover:delay-300">
+                  <span className="pointer-events-none rounded-2xl p-4 bg-teal-200 dark:bg-teal-950 absolute top-full left-0 opacity-0 transition-opacity group-hover:opacity-100 group-hover:duration-700 group-hover:delay-300">
                     {post.overview}
                   </span>
                 </div>
