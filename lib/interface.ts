@@ -8,3 +8,9 @@ export interface Post {
     }
     _createdAt: string
 }
+
+export interface FilterInterface {
+    _id: string
+    title: string
+    image: { alt: string, asset: any },
+}
