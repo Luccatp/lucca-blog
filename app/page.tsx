@@ -1,12 +1,11 @@
-import Navbar from "@/components/Navbar";
 import { Post } from "@/lib/interface";
 import { client } from "@/lib/sanity";
-import Image from "next/image";
 import Link from "next/link";
+import { groq } from "next-sanity";
 
 const getData = async () => {
   const query = '*[_type == "post"]';
-  const data = await client.fetch(query);
+  const data = await client.fetch(groq`${query}`);
   return data;
 };
 
