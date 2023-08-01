@@ -1,17 +1,19 @@
-import Navbar from "@/components/Navbar";
 import { Post } from "@/lib/interface";
 import { client } from "@/lib/sanity";
-import Image from "next/image";
 import Link from "next/link";
+import { groq } from "next-sanity";
 
 const getData = async () => {
   const query = '*[_type == "post"]';
-  const data = await client.fetch(query);
+  const data = await client.fetch(groq`${query}`);
   return data;
 };
 
 export default async function Home() {
   const data = (await getData()) as Post[];
+  const sortedData = data.sort((a, b) => {
+    return new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime();
+  });
   return (
     <div className="divide-y divide-gray-200 dark:divide-gray-700">
       <div className="space-y-2 pt-6 pb-8 md:space-y-5">
@@ -20,7 +22,7 @@ export default async function Home() {
         </h1>
       </div>
       <ul>
-        {data.map((post) => (
+        {sortedData.map((post) => (
           <li key={post._id} className="py-4">
             <article className="relative space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
               <div>
