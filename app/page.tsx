@@ -50,7 +50,7 @@ export default async function Home() {
                   <p className="prose max-w-none line-clamp-3 text-gray-500 dark:text-gray-400">
                     {post.overview}
                   </p>
-                  <span className="pointer-events-none rounded-2xl p-4 bg-teal-200 dark:bg-teal-950 absolute top-full left-0 opacity-0 transition-opacity group-hover:opacity-100 group-hover:duration-700 group-hover:delay-300">
+                  <span className="pointer-events-none z-50 rounded-2xl p-4 bg-teal-200 dark:bg-teal-950 absolute top-full left-0 opacity-0 transition-opacity group-hover:opacity-100 group-hover:duration-700 group-hover:delay-300">
                     {post.overview}
                   </span>
                 </div>
