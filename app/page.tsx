@@ -3,9 +3,16 @@ import { client } from "@/lib/sanity";
 import Link from "next/link";
 import { groq } from "next-sanity";
 
+// Opt out of caching for all data requests in the route segment
+export const dynamic = "force-dynamic";
+const { signal } = new AbortController();
+
 const getData = async () => {
   const query = '*[_type == "post"]';
-  const data = await client.fetch(groq`${query}`);
+  const data = await client.fetch(groq`${query}`, {
+    signal,
+    cache: "no-store",
+  });
   return data;
 };
 
