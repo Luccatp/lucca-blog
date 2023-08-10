@@ -2,7 +2,9 @@ import { Post } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { PortableText } from "@portabletext/react";
+import { ArrowLeft, ChevronLeft, CornerUpLeft } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 interface pageProps {
@@ -37,7 +39,10 @@ const page: FC<pageProps> = async ({ params }) => {
       <header className="pt-6 xl:pb-6">
         <div className="space-y-1 text-center">
           <div className="space-y-10">
-            <div>
+            <div className="relative">
+              <Link href="/" className="absolute left-0 -top-2 md:-top-1">
+                <CornerUpLeft className="w-10 h-10 text-gray-500 dark:text-gray-300" />
+              </Link>
               <p className="text-base font-medium leading-6 text-teal-500">
                 {new Date(data._createdAt)
                   .toISOString()
