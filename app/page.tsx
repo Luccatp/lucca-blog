@@ -30,7 +30,10 @@ export default async function Home() {
       </div>
       <ul>
         {sortedData.map((post) => (
-          <li key={post._id} className="py-4">
+          <li
+            key={post._id}
+            className="py-4 md:p-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
             <article className="relative space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
               <div>
                 <p className="text-base font-medium leading-6 text-teal-500">
@@ -48,7 +51,7 @@ export default async function Home() {
                 className="space-y-3 xl:col-span-3"
               >
                 <div>
-                  <h3 className="text-3xl font-bold leading-8 tracking-tight text-gray-800 dark:text-gray-100">
+                  <h3 className="text-3xl font-bold leading-8 tracking-tight  text-gray-800 dark:text-gray-100">
                     {post.title}
                   </h3>
                 </div>
